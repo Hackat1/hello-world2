@@ -8,10 +8,11 @@ echo "<html><body><h1>This is page two</h1></body></html>" > /var/www/html/pages
 htpasswd -cb /usr/local/etc/.htpasswd Hack P@ssw0rd0!                                           # Create .htaccess with user Hack and standard password.
 htpasswd -b /usr/local/etc/.htpasswd Hack1 P@ssw0rd0!                                           # Create user Hack1 with standard password
 echo "AuthUserFile /usr/local/etc/.htpasswd" > /var/www/html/pages.dir/.htaccess                # Create .htaccess file
-echo "AuthName "Page2 Access"" >> /var/www/html/pages.dir/.htaccess                             # Concatenate to .htaccess
+echo 'AuthName "Page2 Access"' >> /var/www/html/pages.dir/.htaccess                             # Concatenate to .htaccess
 echo "AuthType Basic" >> /var/www/html/pages.dir/.htaccess                                      # Concatenate to .htaccess
 echo "<Limit GET POST>" >> /var/www/html/pages.dir/.htaccess                                    # Concatenate to .htaccess
 echo "require user Hack" >> /var/www/html/pages.dir/.htaccess                                   # Concatenate to .htaccess
 echo "require user Hack1" >> /var/www/html/pages.dir/.htaccess                                  # Concatenate to .htaccess
 echo "</Limit>" >> /var/www/html/pages.dir/.htaccess                                            # Concatenate to .htaccess
+chmod 755 /var/wwww/html/pages.dir/.htaccess                                                    # Change .htaccess file permissions to 755
 systemctl restart httpd                                                                         # Restart apache
