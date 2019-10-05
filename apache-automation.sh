@@ -14,5 +14,5 @@ echo "<Limit GET POST>" >> /var/www/html/pages.dir/.htaccess                    
 echo "require user Hack" >> /var/www/html/pages.dir/.htaccess                                   # Concatenate to .htaccess
 echo "require user Hack1" >> /var/www/html/pages.dir/.htaccess                                  # Concatenate to .htaccess
 echo "</Limit>" >> /var/www/html/pages.dir/.htaccess                                            # Concatenate to .htaccess
-chmod 755 /var/wwww/html/pages.dir/.htaccess                                                    # Change .htaccess file permissions to 755
+chmod 755 /var/www/html/pages.dir/.htaccess                                                    # Change .htaccess file permissions to 755
 systemctl restart httpd                                                                         # Restart apache
