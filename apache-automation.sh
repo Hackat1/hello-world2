@@ -7,7 +7,7 @@ echo "<html><body><h1>Hi there NTI300</h1><p><a href="pages.dir/page2.html">Page
 echo "<html><body><h1>This is page two</h1></body></html>" > /var/www/html/pages.dir/page2.html # Create page two.
 htpasswd -cb /usr/local/etc/.htpasswd Hack P@ssw0rd0!                                           # Create .htaccess with user Hack and standard password.
 htpasswd -b /usr/local/etc/.htpasswd Hack1 P@ssw0rd0!                                           # Create user Hack1 with standard password
-echo "AuthUserFile /usr/local/etc/.htpasswd > /var/www/html/pages.dir/.htaccess                 # Create .htaccess file
+echo "AuthUserFile /usr/local/etc/.htpasswd" > /var/www/html/pages.dir/.htaccess                # Create .htaccess file
 echo "AuthName "Page2 Access"" >> /var/www/html/pages.dir/.htaccess                             # Concatenate to .htaccess
 echo "AuthType Basic" >> /var/www/html/pages.dir/.htaccess                                      # Concatenate to .htaccess
 echo "<Limit GET POST>" >> /var/www/html/pages.dir/.htaccess                                    # Concatenate to .htaccess
