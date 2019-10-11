@@ -1,3 +1,5 @@
+#!/bin/bash
+if [ -e /etc/httpd ]; then exit 0; fi                                                           # Stops file from clobbering itself on system restart
 yum -y install httpd mod_ssl                                                                    # Install apache and ssl support
 systemctl start httpd                                                                           # Start apache
 sed -i 's/^/#/g' /etc/httpd/conf.d/welcome.conf                                                 # Comment out welcome page
