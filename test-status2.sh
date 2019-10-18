@@ -1,6 +1,5 @@
 #!/bin/bash
 
-for packages in $?; do
 if [ -z "$1" ]; then
 	echo "PEBCAK - Enter an argument"
 	exit 0;
@@ -11,6 +10,7 @@ input="$1"
 status=$(systemctl status $1 | grep Active | awk '{print $2}')
 inactive="inactive"
 
+while [ $# > 0 ]; do
 if [ $installed == $input ]; then
 	echo "This package is installed"
 	if [ $status == $inactive ]; then
@@ -19,7 +19,7 @@ if [ $installed == $input ]; then
 		select yn in "Yes" "No"; do
 			case $yn in
 				Yes ) systemctl start $input; break;;
-				No ) exit 0;;
+				No ) break;;
 			esac
 		done
 	else
@@ -28,7 +28,7 @@ if [ $installed == $input ]; then
 		select yn in "Yes" "No"; do
 			case $yn in
 				Yes ) systemctl stop $input; break;;
-				No ) exit 0;;
+				No ) break;;
 			esac
 		done
 	fi
@@ -39,7 +39,7 @@ else
 	select yn in "Yes" "No"; do
 		case $yn in
 			Yes ) yum install -y $input; break;;
-			No ) exit 0;;
+			No ) break;;
 		esac
 	done
 fi
