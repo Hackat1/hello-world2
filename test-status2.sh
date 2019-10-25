@@ -10,7 +10,6 @@ input="$1"
 status=$(systemctl status $1 | grep Active | awk '{print $2}')
 inactive="inactive"
 
-while [ $# > 0 ]; do
 if [ $installed == $input ]; then
 	echo "This package is installed"
 	if [ $status == $inactive ]; then
@@ -19,7 +18,7 @@ if [ $installed == $input ]; then
 		select yn in "Yes" "No"; do
 			case $yn in
 				Yes ) systemctl start $input; break;;
-				No ) break;;
+				No ) exit 0;
 			esac
 		done
 	else
@@ -28,7 +27,7 @@ if [ $installed == $input ]; then
 		select yn in "Yes" "No"; do
 			case $yn in
 				Yes ) systemctl stop $input; break;;
-				No ) break;;
+				No ) exit 0;
 			esac
 		done
 	fi
@@ -39,8 +38,7 @@ else
 	select yn in "Yes" "No"; do
 		case $yn in
 			Yes ) yum install -y $input; break;;
-			No ) break;;
+			No ) exit 0;
 		esac
 	done
 fi
-done
