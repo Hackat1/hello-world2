@@ -45,7 +45,7 @@ def create_instance(compute,project,zone,name):
   'networkInterfaces': [{
     'network': 'global/networks/default',
     'accessConfigs': [
-      {'type': 'ONE_TO_ONT_NAT', 'name': 'External NAT'}
+      {'type': 'ONE_TO_ONE_NAT', 'name': 'External NAT'}
     ]
   }],
   
