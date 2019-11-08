@@ -29,7 +29,7 @@ def create_instance(compute,project,zone,name):
  
  config = {
   'name' : name,
-  'machineType' = machine_type,
+  'machineType' : machine_type,
   # Specify the boot disk and image to use as a source.
   'disks': [
     {
@@ -83,7 +83,7 @@ def create_instance(compute,project,zone,name):
  
  return compute.instances().insert(
   project=project,
-  zone=zone
+  zone=zone,
   body=config).execute()
 
 newinstance = create_instance(compute,project,zone,name)
