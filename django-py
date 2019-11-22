@@ -15,12 +15,12 @@ def setup_install():
 
 def local_repo():
     repo="""[local-epel]
-      name=NTI300 EPEL
-      baseurl=http://104.198.248.166//epel/
-      gpgcheck=0
-      enabled=1"""
+name=NTI300 EPEL
+baseurl=http://104.198.248.166//epel/
+gpgcheck=0
+enabled=1"""
     print(repo)
-    with open("/etc/yum.repos.d/local-repo.repo","W+") as f:
+    with open("/etc/yum.repos.d/local-repo.repo","w+") as f:
       f.write(repo)
     f.close()
     on="enabled=1"
